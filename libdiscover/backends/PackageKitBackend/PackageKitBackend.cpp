@@ -106,6 +106,8 @@ PackageKitBackend::PackageKitBackend(QObject* parent)
             fetchUpdates();
         acquireFetching(false);
     }, this);
+
+    PackageKit::Daemon::global()->setHints(QStringLiteral("locale=%1.utf8").arg(QLocale().name()));
 }
 
 PackageKitBackend::~PackageKitBackend()
